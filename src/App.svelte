@@ -7,6 +7,8 @@
 	import CheckboxGroup from './components/CheckboxGroup.svelte';
 	import SelectGroup from './components/SelectGroup.svelte';
 	import Select from './components/Select.svelte';
+	let select;
+	$: console.log(select);
 </script>
 
 <Window class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{80}">
@@ -25,11 +27,11 @@
 				<Checkbox text="asd" />
 			</CheckboxGroup>
 			<!--  No legend here  -->
-			<SelectGroup mul>
-				<Select text="Hola" value="{2}" />
+			<SelectGroup mul bind:value="{select}">
+				<Select text="Hola" value="{1}" />
 				<Select text="Hola1" value="{2}" />
-				<Select text="Hola2" value="{2}" />
-				<Select text="Hola3sdadasasdasddsa" value="{2}" />
+				<Select text="Hola2" value="{3}" />
+				<Select text="Hola3sdadasasdasddsa" value="{4}" />
 			</SelectGroup>
 		</Fieldset>
 	</WindowBody>
