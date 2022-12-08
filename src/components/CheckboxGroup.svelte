@@ -34,7 +34,7 @@
 	});
 </script>
 
-<div class="{`${$$props.class} ${row ? 'flex justify-between flex-row items-center' : ''} ${collumn ? 'flex justify-center flex-col items-center' : ''}`}">
+<div class="{`${$$props.class}`}">
 	{#if $$slots.fieldset}
 		<Fieldset hasLegend="{hasLegend}" legendText="{legendText}">
 			<slot name="fieldset" />

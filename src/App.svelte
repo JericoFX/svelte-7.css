@@ -5,9 +5,11 @@
 	import Button from './components/Button.svelte';
 	import Checkbox from './components/Checkbox.svelte';
 	import CheckboxGroup from './components/CheckboxGroup.svelte';
+	import SelectGroup from './components/SelectGroup.svelte';
+	import Select from './components/Select.svelte';
 </script>
 
-<Window active class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{80}">
+<Window class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{80}">
 	<WindowBody>
 		<Fieldset hasLegend legendText="Hellow" class="w-30vw">
 			<p>Csdlasdpa</p>
@@ -23,6 +25,12 @@
 				<Checkbox text="asd" />
 			</CheckboxGroup>
 			<!--  No legend here  -->
+			<SelectGroup mul>
+				<Select text="Hola" value="{2}" />
+				<Select text="Hola1" value="{2}" />
+				<Select text="Hola2" value="{2}" />
+				<Select text="Hola3sdadasasdasddsa" value="{2}" />
+			</SelectGroup>
 		</Fieldset>
 	</WindowBody>
 </Window>
