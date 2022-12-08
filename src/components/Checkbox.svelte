@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {getContext, setContext} from 'svelte';
+	import {getContext} from 'svelte';
 	import {writable} from 'svelte/store';
 	/**
 	 * @param {string} text - This will be next to the checkbox

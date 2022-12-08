@@ -29,8 +29,8 @@
 			<!--  No legend here  -->
 			<SelectGroup mul bind:value="{select}">
 				<Select text="Hola" value="{1}" />
-				<Select text="Hola1" value="{2}" />
-				<Select text="Hola2" value="{3}" />
+				<Select selected text="Hola1" value="{2}" />
+				<Select disabled text="Hola2" value="{3}" />
 				<Select text="Hola3sdadasasdasddsa" value="{4}" />
 			</SelectGroup>
 		</Fieldset>

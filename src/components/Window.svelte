@@ -13,9 +13,9 @@ export let hasBarControls = true
     <div class="title-bar-text">{title}</div>
 		  {#if hasBarControls}
     <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
+      <button on:click aria-label="Minimize"></button>
+      <button on:click aria-label="Maximize"></button>
+      <button on:click aria-label="Close"></button>
     </div>
 			{/if}
   </div>
