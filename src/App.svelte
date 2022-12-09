@@ -7,8 +7,8 @@
 	import CheckboxGroup from './components/CheckboxGroup.svelte';
 	import SelectGroup from './components/SelectGroup.svelte';
 	import Select from './components/Select.svelte';
+	import Progressbar from './components/Progressbar.svelte';
 	let select;
-	$: console.log(select);
 </script>
 
 <Window class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{80}">
@@ -33,6 +33,7 @@
 				<Select disabled text="Hola2" value="{3}" />
 				<Select text="Hola3sdadasasdasddsa" value="{4}" />
 			</SelectGroup>
+			<Progressbar type="animate" currentValue="{10}" />
 		</Fieldset>
 	</WindowBody>
 </Window>
