@@ -27,17 +27,19 @@
 	$: checked = $selectedValue === id;
 </script>
 
-<input
-	disabled="{disabled}"
-	type="checkbox"
-	id="{id}"
-	value="{value}"
-	bind:checked="{checked}"
-	on:change="{() => {
-		if (ctx) {
-			ctx?.update(id);
-		}
-	}}"
-/>
+<div class="field-row">
+	<input
+		disabled="{disabled}"
+		type="checkbox"
+		id="{id}"
+		value="{value}"
+		bind:checked="{checked}"
+		on:change="{() => {
+			if (ctx) {
+				ctx?.update(id);
+			}
+		}}"
+	/>
 
-<label disabled="{disabled}" checked="{checked}" for="{id}">{text}</label>
+	<label disabled="{disabled}" checked="{checked}" for="{id}">{text}</label>
+</div>

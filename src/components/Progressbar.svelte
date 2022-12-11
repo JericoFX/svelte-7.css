@@ -18,6 +18,8 @@
 	});
 </script>
 
-<div class="{`${type} ${$$props.class}`}" role="progressbar" aria-valuemin="{min}" aria-valuemax="{max}" aria-valuenow="{currentValue}">
-	<div transition:fade style:width="{`${$progress * 100}%`}"></div>
+<div class="field-row">
+	<div class="{`${type}  ${$$props.class}`}" role="progressbar" aria-valuemin="{min}" aria-valuemax="{max}" aria-valuenow="{currentValue}">
+		<div transition:fade style:width="{`${$progress * 100}%`}"></div>
+	</div>
 </div>

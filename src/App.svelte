@@ -8,10 +8,14 @@
 	import SelectGroup from './components/SelectGroup.svelte';
 	import Select from './components/Select.svelte';
 	import Progressbar from './components/Progressbar.svelte';
+	import Tabs from './components/Tabs/Tabs.svelte';
+
+	import Tab from './components/Tabs/Tab.svelte';
+	import TabContent from './components/Tabs/TabContent.svelte';
 	let select;
 </script>
 
-<Window class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{80}">
+<Window class="absolute left-50% top-50% -translate-y-50% -translate-x-50%" title="Jerico" width="{50}" height="{100}">
 	<WindowBody>
 		<Fieldset hasLegend legendText="Hellow" class="w-30vw">
 			<p>Csdlasdpa</p>
@@ -29,11 +33,19 @@
 			<!--  No legend here  -->
 			<SelectGroup mul bind:value="{select}">
 				<Select text="Hola" value="{1}" />
-				<Select selected text="Hola1" value="{2}" />
-				<Select disabled text="Hola2" value="{3}" />
+				<Select text="Hola1" value="{2}" />
+				<Select selected text="Hola2" value="{3}" />
 				<Select text="Hola3sdadasasdasddsa" value="{4}" />
 			</SelectGroup>
-			<Progressbar type="animate" currentValue="{10}" />
+			<Progressbar class="w-full" type="error" currentValue="{10}" />
+			<Tabs class="w-full">
+				<svelte:fragment slot="tabs">
+					<Tab label="Reportes" />
+					<Tab label="Bolos" />
+				</svelte:fragment>
+				<TabContent />
+				<TabContent>asdsdadsadasadsasddsa</TabContent>
+			</Tabs>
 		</Fieldset>
 	</WindowBody>
 </Window>
