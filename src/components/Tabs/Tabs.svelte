@@ -1,17 +1,22 @@
 <script lang="ts">
-	import {onMount, setContext} from 'svelte';
+	import {setContext} from 'svelte';
 	import {writable, derived} from 'svelte/store';
-	import {afterUpdate} from 'svelte';
+	import {onMount} from 'svelte';
 	const tabs = writable([]);
 	const selectedTab = writable(undefined);
 	const content = writable([]);
 	const selectedContent = writable([]);
-	const contentById = derived(content, (_) => _.reduce((a, c) => ({...a, [c.id]: c}), {}));
 	export let hasbeenSelected = writable(false);
+	onMount(() => {
+		$hasbeenSelected = $tabs[0]?.id;
+		$selectedTab = $tabs[0]?.id;
+		setTimeout(() => {
+			$selectedContent = $content[0]?.id;
+		}, 100);
+	});
 	setContext('Hola', {
 		tabs,
 		content,
-		contentById,
 		selectedTab,
 		selectedContent,
 		hasbeenSelected,

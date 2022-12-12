@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import Window from './components/Window.svelte';
 	import WindowBody from './components/Window-Body.svelte';
 	import Fieldset from './components/Fieldset.svelte';
@@ -12,6 +14,7 @@
 
 	import Tab from './components/Tabs/Tab.svelte';
 	import TabContent from './components/Tabs/TabContent.svelte';
+	import TextBox from './components/TextBox/TextBox.svelte';
 	let select;
 </script>
 
@@ -44,15 +47,17 @@
 					<Tab label="Bolos" />
 				</svelte:fragment>
 				<TabContent />
-				<TabContent>asdsdadsadasadsasddsa</TabContent>
+				<TabContent>
+					<TextBox stacked text="Hola" />
+					<Button text="HI" />
+				</TabContent>
 			</Tabs>
 		</Fieldset>
 	</WindowBody>
 </Window>
 
 <style>
-	p,
-	span {
+	:global(p, span) {
 		white-space: wrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
