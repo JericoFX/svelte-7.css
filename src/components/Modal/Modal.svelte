@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Button from '../Button.svelte';
-	import ButtonGroup from '../ButtonGroup/ButtonGroup.svelte';
-	import WindowBody from '../Window-Body.svelte';
-	import Window from '../Window.svelte';
+	import Button from '../Button/Button.svelte';
+	import ButtonGroup from '../Button/ButtonGroup.svelte';
+	import WindowBody from '../Window/Window-Body.svelte';
+	import Window from '../Window/Window.svelte';
 	export let width = 70;
 	export let open = true;
 	export let oneButton = false;

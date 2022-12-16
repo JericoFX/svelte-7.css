@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Fieldset from './Fieldset.svelte';
+	import Fieldset from '../Fieldset/Fieldset.svelte';
 	import {onMount, setContext, afterUpdate, createEventDispatcher} from 'svelte';
 	import {writable, type Writable} from 'svelte/store';
-		/**
+	/**
 	 * @param {any} value - Add a value to the checkbox
 	 */
 	export let value: any = undefined;
@@ -14,7 +14,7 @@
 	 * @param {string} legendText - The text off the legend
 	 */
 	export let legendText: string = '';
-	
+
 	const dispatch = createEventDispatcher();
 	const selectedValue: Writable<any> = writable(value);
 	setContext('CheckboxGroup', {

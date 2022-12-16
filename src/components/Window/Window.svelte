@@ -10,7 +10,7 @@
 	const id = 'jerico' + Math.random().toString(36);
 </script>
 
-<div id="{id}" class="{`window ${$$props.class}`}" style:width="{`${isModal ? fixedWidth : ''}vw`}" class:active style:max-width="{`${width}vw`}" style:max-height="{`${height}vh`}">
+<div id="{id}" class="{`window ${$$props.class}`}" style:width="{`${isModal ? fixedWidth : ''}vw`}" class:active style:max-width="{`${isModal ? fixedWidth : width}vw`}" style:max-height="{`${height}vh`}">
 	{#if hasTitleBar}
 		<div class="title-bar">
 			<div class="title-bar-text">{title}</div>
