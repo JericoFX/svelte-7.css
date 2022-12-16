@@ -20,7 +20,7 @@
 	import ButtonGroup from './components/ButtonGroup/ButtonGroup.svelte';
 	import Slider from './components/Slider/Slider.svelte';
 	let select;
-	$: console.log(select);
+	let wachin = 0;
 </script>
 
 <Window class="absolute-center p-0 m-0 " title="Jerico" width="{50}" height="{100}">
@@ -45,7 +45,7 @@
 				<Select selected text="Hola2" value="{3}" />
 				<Select text="Hola3sdadasasdasddsa" value="{4}" />
 			</SelectGroup>
-			<Progressbar class="w-full" type="error" currentValue="{10}" />
+			<Progressbar class="w-full" type="animate" currentValue="{wachin}" />
 			<Tabs class="w-full">
 				<svelte:fragment slot="tabs">
 					<Tab label="Reportes" />
@@ -61,7 +61,7 @@
 				</TabContent>
 			</Tabs>
 			<Slider isVertical text="{{first: 'Volumen:', second: 'Min', third: 'Max'}}" min="{0}" max="{10}" bind:value="{select}" />
-			<Slider step={0.5} text="{{first: 'Volumen:', second: 'Min', third: 'Max'}}" min="{0}" max="{10}" bind:value="{select}" />
+			<Slider step="{0.5}" text="{{first: 'Volumen:', second: 'Min', third: 'Max'}}" min="{0}" max="{10}" bind:value="{select}" />
 		</Fieldset>
 	</WindowBody>
 </Window>

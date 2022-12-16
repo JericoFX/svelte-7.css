@@ -9,13 +9,15 @@
 	export let currentValue = 1;
 	export let type: 'paused' | 'error' | 'animate' | 'marquee' | '' = '';
 	$: con = currentValue / 100;
+	$: progress.set(con);
 	const progress = tweened(con, {
 		duration: 500,
 		easing: cubicOut,
 	});
-	afterUpdate(() => {
-		progress.set(con);
-	});
+
+	// afterUpdate(() => {
+
+	// });
 </script>
 
 <div class="field-row">
