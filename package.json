@@ -1,6 +1,6 @@
 {
-  "name": "@jericofx/svelte-7.css",
-  "version": "0.0.1",
+  "name": "@jericofx/svelte-7css",
+  "version": "0.0.2",
   "homepage": "https://github.com/JericoFX/svelte-7.css",
   "repository": {
     "type": "git",
@@ -8,17 +8,15 @@
   },
   "license": "MIT",
   "author": "Jerico FX",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
-  "dependencies": {
-    "7.css": "^0.11.0",
-    "@fortawesome/fontawesome-free": "^6.2.1"
-  },
+  "files": [
+    "dist/assets"
+  ],
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.4.0",
     "@tsconfig/svelte": "^3.0.0",
