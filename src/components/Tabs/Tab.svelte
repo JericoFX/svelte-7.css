@@ -1,6 +1,9 @@
 <script lang="ts">
 	import {afterUpdate} from 'svelte';
 	import {getContext, setContext} from 'svelte';
+	/**
+	 * @param {string} label - Label of the Tab
+	 */
 	export let label = '';
 	export let id = 'ccs-' + Math.random().toString(36);
 	const {add, selectedTab, update} = getContext('Hola');

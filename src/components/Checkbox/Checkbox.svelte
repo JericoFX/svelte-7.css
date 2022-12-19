@@ -25,10 +25,17 @@
 		ctx.changeValue({checked, value});
 	}
 	$: checked = $selectedValue === id;
+// Didnt tested
+	const checkIfSelected = (/** @type {HTMLOptionElement} */ node) => {
+		setTimeout(() => {
+			node.checked = checked;
+		}, 1);
+	};
 </script>
 
 <div class="field-row">
 	<input
+	use:checkIfSelected
 		disabled="{disabled}"
 		type="checkbox"
 		id="{id}"

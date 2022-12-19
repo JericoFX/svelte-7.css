@@ -4,8 +4,17 @@
 	import {writable} from 'svelte/store';
 	import {cubicOut} from 'svelte/easing';
 	import {afterUpdate} from 'svelte';
+	/**
+	 * @param {number} min - Minimun value of the progressbar | default 0
+	 */
 	export let min = 0;
+	/**
+	 * @param {number} max - Maximun value of the progressbar | default 100
+	 */
 	export let max = 100;
+	/**
+	 * @param {number} currentValue - Reactive value to set the progressbar
+	 */
 	export let currentValue = 1;
 	export let type: 'paused' | 'error' | 'animate' | 'marquee' | '' = '';
 	$: con = currentValue / 100;
@@ -14,10 +23,6 @@
 		duration: 500,
 		easing: cubicOut,
 	});
-
-	// afterUpdate(() => {
-
-	// });
 </script>
 
 <div class="field-row">
