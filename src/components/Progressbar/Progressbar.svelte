@@ -16,6 +16,7 @@
 	 * @param {number} currentValue - Reactive value to set the progressbar
 	 */
 	export let currentValue = 1;
+
 	export let type: 'paused' | 'error' | 'animate' | 'marquee' | '' = '';
 	$: con = currentValue / 100;
 	$: progress.set(con);

@@ -33,8 +33,7 @@
     "vite": "^3.2.5"
   },
   "dependencies": {
-    "7.css": "^0.11.0",
-    "svelte-dts": "^0.3.7"
+    "7.css": "^0.11.0"
   },
   "types": "./type/index.d.ts"
 }
