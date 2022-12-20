@@ -7,18 +7,19 @@
 	 */
 	export let value: any = undefined;
 	/**
-	 * @param {boolean} hasLegend - Check if you want a legend on the fieldset
+	 * @param {boolean} hasFieldset - Add a fieldset on the component
 	 */
-	export let hasLegend: boolean = false;
+	export let hasFieldset: boolean = false;
 	/**
 	 * @param {string} legendText - The text off the legend
 	 */
 	export let legendText: string = '';
-
+	const jere = $$slots.default;
 	const dispatch = createEventDispatcher();
 	const selectedValue: Writable<any> = writable(value);
 	setContext('CheckboxGroup', {
 		selectedValue,
+		jere,
 		changeValue: ({checked, value}) => {
 			if (checked) {
 				selectedValue.set(value);
@@ -42,9 +43,9 @@
 </script>
 
 <div class="{`${$$props.class}`}">
-	{#if $$slots.fieldset}
-		<Fieldset hasLegend="{hasLegend}" legendText="{legendText}">
-			<slot name="fieldset" />
+	{#if hasFieldset}
+		<Fieldset hasLegend="{legendText.length > 1}" legendText="{legendText}">
+			<slot />
 		</Fieldset>
 	{:else}
 		<slot />

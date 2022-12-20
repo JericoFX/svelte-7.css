@@ -2,15 +2,16 @@
 	/**
 	 * @param {boolean} center - Will use Flex to center the buttons
 	 */
-	export let center = false;
-		/**
+	export let center = true;
+	/**
 	 * @param {boolean} around - Will use Flex to put the buttons with justify-around
 	 */
 	export let around = false;
-		/**
+	/**
 	 * @param {boolean} around - Will use Flex to put the buttons with justify-around
 	 */
 	export let between = false;
+
 	$: select = '';
 	$: if (center) {
 		between = false;

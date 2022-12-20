@@ -15,16 +15,26 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "main": "src/components/index.js",
+  "files": [
+    "src/components",
+    "type"
+  ],
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.4.0",
     "@tsconfig/svelte": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
+    "sveld": "^0.18.0",
     "svelte": "^3.54.0",
     "svelte-check": "^2.10.2",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
     "vite": "^3.2.5"
-  }
+  },
+  "dependencies": {
+    "7.css": "^0.11.0",
+    "svelte-dts": "^0.3.7"
+  },
+  "types": "./type/index.d.ts"
 }

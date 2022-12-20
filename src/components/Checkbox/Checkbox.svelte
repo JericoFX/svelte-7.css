@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {getContext} from 'svelte';
+	import { getContext} from 'svelte';
 	import {writable} from 'svelte/store';
 	/**
 	 * @param {string} text - This will be next to the checkbox
@@ -20,22 +20,27 @@
 	export const id = (Math.random() * 1000).toFixed(0);
 
 	const ctx = getContext('CheckboxGroup');
-	const selectedValue = ctx ? ctx.selectedValue : writable(checked ? value : undefined);
+	let grouped = ctx ? ctx.jere : false;
+
 	if (ctx) {
 		ctx.changeValue({checked, value});
 	}
-	$: checked = $selectedValue === id;
-// Didnt tested
+	let selectedValue;
+	$: if (grouped) {
+		selectedValue = ctx ? ctx?.selectedValue : writable(checked ? value : undefined);
+	}
+
 	const checkIfSelected = (/** @type {HTMLOptionElement} */ node) => {
 		setTimeout(() => {
 			node.checked = checked;
 		}, 1);
 	};
+	$: checked = grouped ? $selectedValue === id : checked;
 </script>
 
 <div class="field-row">
 	<input
-	use:checkIfSelected
+		use:checkIfSelected
 		disabled="{disabled}"
 		type="checkbox"
 		id="{id}"
