@@ -11,6 +11,8 @@ Documentation Coming soon.
 
 Not yet
 
+this package will install unocss too
+
 ```bash
   npm install svelte-7css // this isnt working yet
 ```
