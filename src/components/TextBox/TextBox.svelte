@@ -1,4 +1,7 @@
 <script lang="ts">
+	import {onMount} from 'svelte/types/runtime/internal/lifecycle';
+
+	export let ref;
 	export let stacked = false;
 	/**
 	 * @param {number} width - Set the width of the div
@@ -17,9 +20,14 @@
 	 * @param {boolean} disabled - Add a disabled state
 	 */
 	export let disabled = false;
+	onMount(() => {
+		if (ref.className === 'field-row') {
+			ref.style.margin = 0;
+		}
+	});
 </script>
 
-<div id="{id}" class:jkere="{true}" class="{` ${stacked ? 'field-row-stacked' : 'field-row'}`}" style:width="{`300px`}">
+<div bind:this="{ref}" id="{id}" class:jkere="{true}" class="{` ${stacked ? 'field-row-stacked' : 'field-row'}`}" style:width="{`300px`}">
 	<label for="{id}">{text}</label>
 	<input disabled="{disabled}" value="{value ?? ''}" id="{id}" type="text" />
 </div>
