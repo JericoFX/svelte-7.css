@@ -11,3 +11,4 @@ export {Tabs, Tab, TabContent} from './Tabs';
 export {TextArea} from './TextArea';
 export {TextBox} from './TextBox';
 export {Window, WindowBody} from './Window';
+export {Menubar, MenuItem, MenuSubmenu} from './Menubar';
