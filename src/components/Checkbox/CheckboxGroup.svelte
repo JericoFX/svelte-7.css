@@ -1,50 +1,66 @@
 <script lang="ts">
-	import Fieldset from '../Fieldset/Fieldset.svelte';
-	import {onMount, setContext, afterUpdate, createEventDispatcher} from 'svelte';
+	import Fieldset from './components/Fieldset/Fieldset.svelte';
+	import {onMount, setContext, afterUpdate, createEventDispatcher, onDestroy} from 'svelte';
 	import {writable, type Writable} from 'svelte/store';
+	let ref;
 	/**
 	 * @param {any} value - Add a value to the checkbox
 	 */
 	export let value: any = undefined;
 	/**
-	 * @param {boolean} hasFieldset - Add a fieldset on the component
+	 * @param {boolean} hasLegend - Check if you want a legend on the fieldset
 	 */
-	export let hasFieldset: boolean = false;
+	export let hasLegend: boolean = false;
 	/**
 	 * @param {string} legendText - The text off the legend
 	 */
 	export let legendText: string = '';
 	const jere = $$slots.default;
 	const dispatch = createEventDispatcher();
-	const selectedValue: Writable<any> = writable(value);
+	const selec = writable(undefined, () => {
+		return () => {
+			console.log('removed');
+
+			$selec = undefined;
+			ref.remove();
+		};
+	});
 	setContext('CheckboxGroup', {
-		selectedValue,
 		jere,
-		changeValue: ({checked, value}) => {
+		selec,
+		changeValue: ({checked, id}) => {
 			if (checked) {
-				selectedValue.set(value);
+				$selec = id;
 			}
 		},
-		update: (values: any) => {
-			value = values;
+		update: (id: any) => {
+			$selec = id;
+
+			value = id;
 		},
 	});
 
 	afterUpdate(() => {
-		$selectedValue = value;
+		$selec = value;
 	});
-	selectedValue.subscribe((values) => {
+
+	selec.subscribe((values) => {
 		value = values;
 		dispatch('change', value);
 	});
+
 	onMount(() => {
-		$selectedValue = value;
+		$selec = value;
+	});
+	onDestroy(() => {
+		$selec();
+		console.log('HI');
 	});
 </script>
 
-<div class="{`${$$props.class}`}">
-	{#if hasFieldset}
-		<Fieldset hasLegend="{legendText.length > 1}" legendText="{legendText}">
+<div bind:this="{ref}" class="{`${$$props.class}`}">
+	{#if hasLegend}
+		<Fieldset hasLegend="{hasLegend}" legendText="{legendText}">
 			<slot />
 		</Fieldset>
 	{:else}
