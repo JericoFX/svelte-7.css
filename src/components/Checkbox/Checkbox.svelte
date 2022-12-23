@@ -1,46 +1,41 @@
 <script lang="ts">
-	import { getContext} from 'svelte';
+	import {afterUpdate, getContext} from 'svelte';
 	import {writable} from 'svelte/store';
+	let ref;
 	/**
 	 * @param {string} text - This will be next to the checkbox
 	 */
 	export let text = '';
 	/**
-	 * @param {boolean} checked - Add a checked state to the button
+	 *  Checked - Add a checked state to the button
 	 */
 	export let checked = false;
 	/**
-	 * @param {any} value - Specify the value of the checkbox
+	 * Value - Specify the value of the checkbox
 	 */
+
 	export let value = '';
 	/**
-	 * @param {boolean} disabled - Add a disabled state
+	 * Disabled - Add a disabled state
 	 */
 	export let disabled = false;
+
 	export const id = (Math.random() * 1000).toFixed(0);
 
 	const ctx = getContext('CheckboxGroup');
 	let grouped = ctx ? ctx.jere : false;
+	const ul = ctx ? ctx.selec : undefined;
 
 	if (ctx) {
-		ctx.changeValue({checked, value});
+		ctx.changeValue({checked, value, id});
 	}
-	let selectedValue;
-	$: if (grouped) {
-		selectedValue = ctx ? ctx?.selectedValue : writable(checked ? value : undefined);
-	}
+	console.log(grouped, $ul === id);
 
-	const checkIfSelected = (/** @type {HTMLOptionElement} */ node) => {
-		setTimeout(() => {
-			node.checked = checked;
-		}, 1);
-	};
-	$: checked = grouped ? $selectedValue === id : checked;
+	$: checked = grouped ? $ul === id : checked;
 </script>
 
 <div class="field-row">
 	<input
-		use:checkIfSelected
 		disabled="{disabled}"
 		type="checkbox"
 		id="{id}"
