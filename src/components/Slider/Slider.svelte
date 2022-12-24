@@ -26,7 +26,7 @@
 	/**
 	 * This function will prevent the person to spam the slider because each time the person change the slider will throw an event to update the value because is 2 way binding, with this will only catch the value when the person release the mouse button.
 	 */
-	const wachin = (e: {target: {value: number}}) => {
+	const wachin = (e) => {
 		value = e.target.value;
 	};
 </script>

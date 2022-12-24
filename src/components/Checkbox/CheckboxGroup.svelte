@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Fieldset from './components/Fieldset/Fieldset.svelte';
-	import {onMount, setContext, afterUpdate, createEventDispatcher, onDestroy} from 'svelte';
+	import Fieldset from '../Fieldset/Fieldset.svelte';
+	import {onMount, setContext, afterUpdate, createEventDispatcher} from 'svelte';
 	import {writable, type Writable} from 'svelte/store';
 	let ref;
 	/**
@@ -17,14 +17,7 @@
 	export let legendText: string = '';
 	const jere = $$slots.default;
 	const dispatch = createEventDispatcher();
-	const selec = writable(undefined, () => {
-		return () => {
-			console.log('removed');
-
-			$selec = undefined;
-			ref.remove();
-		};
-	});
+	const selec = writable(undefined);
 	setContext('CheckboxGroup', {
 		jere,
 		selec,
@@ -35,7 +28,6 @@
 		},
 		update: (id: any) => {
 			$selec = id;
-
 			value = id;
 		},
 	});
@@ -51,10 +43,6 @@
 
 	onMount(() => {
 		$selec = value;
-	});
-	onDestroy(() => {
-		$selec();
-		console.log('HI');
 	});
 </script>
 
